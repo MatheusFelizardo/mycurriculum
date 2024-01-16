@@ -1,6 +1,8 @@
 <script setup>
+import NavLink from '@/Components/NavLink.vue'; 
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
+
 </script>
 
 <template>
@@ -16,7 +18,15 @@ import { Head } from '@inertiajs/vue3';
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">You're logged in!</div>
                 </div>
+
+                <div class="pt-6">
+                    <p class="text-sm mb-2">File: example.pdf</p>
+                    <NavLink class="bg-gray-300 text-black rounded-sm" :href="route('pdf.read')">Read PDF</NavLink>
+                </div>
             </div>
         </div>
+
+    
+       
     </AuthenticatedLayout>
 </template>
