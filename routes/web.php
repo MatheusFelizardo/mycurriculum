@@ -38,7 +38,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/app/pdf', [PdfController::class, 'read'])->name('pdf.read');
-    Route::post('/app/pdf', [PdfController::class, 'update'])->name('pdf.update');
+    Route::post('/app/read', [PdfController::class, 'read'])->name('pdf.read');
+    Route::post('/app/update', [PdfController::class, 'update'])->name('pdf.update');
 });
 
 

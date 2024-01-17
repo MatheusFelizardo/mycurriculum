@@ -44,7 +44,24 @@ class ChatGPTController extends Controller
                 - Do not add the responsibilities, overview, or qualifications from the job description to the new resume;
                 - Do not include any links that do not exist;
                 - Add A field Objectives explaining something related to the job description;
-                - Make the resume well formated as a professional resume;"],
+                - Make the resume well formated as a professional resume;
+                - Give me the response as a JSON with the following format but just with the fields that you have informations about, except the objective that you will create:
+                {
+                    personal_informations: {'name': 'Example'} // with name, phone, email, address, and other personal informations
+                    objective: '' // with your sugestion for the role,
+                    experience: [{}] // an array of objects with role, company, description, technologies about the user experiences,
+                    education: [{}] // an array of objects with school, degree, description, start, end, and other informations about the user education,
+                    skills: [{}] // an array of objects with name, level, and other informations about the user skills,
+                    languages: [{}] // an array of objects with name, level, and other informations about the user languages,
+                    certifications: [{}] // an array of objects with name, level, and other informations about the user certifications,
+                    courses: [{}] // an array of objects with name, level, and other informations about the user courses,
+                    projects: [{}] // an array of objects with name, level, and other informations about the user projects,
+                    publications: [{}] // an array of objects with name, level, and other informations about the user publications,
+                    awards: [{}] // an array of objects with name, level, and other informations about the user awards,
+                    hobbies: [{}] // an array of objects with name, level, and other informations about the user hobbies,
+                    volunteer: [{}] // an array of objects with name, level, and other informations about the user volunteer,
+                    additional_informations: [{}] // an array of objects with name, level, and other informations about the user additional_informations,
+                }"],
                 ['role' => 'user', 'content' => "$cvText"],
             ],
         ]);

@@ -15,12 +15,20 @@ class PdfController extends Controller
 
     public function read(Request $request): Response
     {
-        $pdfPath = public_path('pdfs/example.pdf');
+        $file = $request->file('cv');
+        $destinationPath = public_path('pdfs');
+        $fileName = $file->getClientOriginalName(); 
+        $file->move($destinationPath, $fileName);
+        
+        $pdfPath = public_path("pdfs/$fileName");
         $parser = new \Smalot\PdfParser\Parser();
         $pdf = $parser->parseFile($pdfPath);
         $text = $pdf->getText();
         $gpt = new ChatGPTController();
         $gptResponse = $gpt->sendChatGTPText($text);
+
+        unlink($pdfPath);
+
         return Inertia::render('Pdf/Read', [
             'data' =>$text,
             'gptResponse' => $gptResponse

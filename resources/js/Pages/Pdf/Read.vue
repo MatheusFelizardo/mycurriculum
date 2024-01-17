@@ -3,12 +3,11 @@
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Read PDF</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Reading your CV</h2>
         </template>
 
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <div class="py-12">
-            <p>This is the response GPT:</p>
+          <div class="py-0 pb-6">
             <div>
                 <pre class="whitespace-break-spaces">{{gptResponse}}</pre>
             </div>
